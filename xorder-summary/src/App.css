@@ -1,12 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
 body {
   min-height: 100vh;
-
   font-family: "Red Hat Display", sans-serif;
 
   background-color: #e0e8ff;
@@ -19,6 +26,7 @@ body {
 
 .main {
   min-height: 100vh;
+  width: 100%;
 
   display: flex;
   align-items: center;
@@ -33,16 +41,15 @@ body {
 
   overflow: hidden;
 
-  background: #ffffff;
-
+  background-color: #ffffff;
   border-radius: 20px;
 
   box-shadow: 0 20px 40px rgba(56, 41, 224, 0.15);
 }
 
 .hero-image {
-  width: 100%;
   display: block;
+  width: 100%;
 }
 
 .content {
@@ -51,21 +58,19 @@ body {
 }
 
 .heading {
-  color: #1f2f56;
+  margin-bottom: 18px;
 
+  color: #1f2f56;
   font-size: 28px;
   font-weight: 900;
-
-  margin-bottom: 18px;
 }
 
 .summary-para {
-  color: #7280a7;
+  margin-bottom: 22px;
 
+  color: #7280a7;
   font-size: 15px;
   line-height: 1.65;
-
-  margin-bottom: 22px;
 }
 
 .plan {
@@ -73,12 +78,11 @@ body {
   align-items: center;
   justify-content: space-between;
 
+  width: 100%;
+  margin-bottom: 25px;
   padding: 18px;
 
-  margin-bottom: 25px;
-
-  background: #f8f9fe;
-
+  background-color: #f8f9fe;
   border-radius: 12px;
 }
 
@@ -98,29 +102,28 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   gap: 4px;
 }
 
 .plan-text h3 {
-  color: #1f2f56;
+  margin: 0;
 
+  color: #1f2f56;
   font-size: 14px;
   font-weight: 900;
 }
 
 .plan-text p {
-  color: #7280a7;
+  margin: 0;
 
+  color: #7280a7;
   font-size: 14px;
 }
 
 .change-link a {
   color: #3829e0;
-
   font-size: 13px;
   font-weight: 700;
-
   text-decoration: underline;
 }
 
@@ -129,15 +132,19 @@ body {
 }
 
 .proceed-btn {
+  display: block;
+
   width: 100%;
+  height: auto;
 
   padding: 15px;
 
-  border: none;
+  border: 0;
   border-radius: 10px;
 
-  background-color: #3829e0;
-  color: #ffffff;
+  background-color: rgb(56, 41, 224);
+
+  color: rgb(255, 255, 255);
 
   font-family: inherit;
   font-size: 14px;
@@ -145,11 +152,11 @@ body {
 
   cursor: pointer;
 
-  transition: background-color 0.3s ease;
+  transition: background-color 0.25s ease;
 }
 
 .proceed-btn:hover {
-  background-color: #766cf1;
+  background-color: rgb(118, 108, 241);
 }
 
 .cancel-order {
@@ -157,23 +164,25 @@ body {
 
   margin-top: 28px;
 
-  color: #7280a7;
+  color: rgb(114, 128, 167);
 
   font-size: 14px;
   font-weight: 700;
 
   text-decoration: none;
 
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .cancel-order:hover {
-  color: #1f2f56;
+  color: rgb(31, 47, 86);
 }
 
-@media (max-width: 450px) {
+@media screen and (max-width: 450px) {
   body {
     background-image: url("../assets/pattern-background-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: top center;
     background-size: 100% auto;
   }
 
