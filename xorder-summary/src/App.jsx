@@ -7,36 +7,72 @@ function App() {
   return (
     <main className="main">
       <div className="container">
-        <img className="hero-image" src={heroImage} alt="Order Summary" />
+
+        <img
+          className="hero-image"
+          src={heroImage}
+          alt="Order Summary"
+        />
 
         <div className="content">
-          <h1 className="heading">Order Summary</h1>
+
+          <h1 className="heading">
+            Order Summary
+          </h1>
 
           <p className="summary-para">
-            You can now listen to millions of songs, audiobooks, and podcasts on
-            any device anywhere you like!
+            You can now listen to millions of songs, audiobooks,
+            and podcasts on any device anywhere you like!
           </p>
 
           <div className="plan">
+
             <div className="plan-left">
-              <img src={musicIcon} alt="Music" className="music-icon" />
+
+              <img
+                src={musicIcon}
+                alt="Music"
+                className="music-icon"
+              />
 
               <div className="plan-text">
                 <h3>Annual Plan</h3>
                 <p>$59.99/year</p>
               </div>
+
             </div>
 
             <div className="change-link">
               <a href="#">Change</a>
             </div>
+
           </div>
 
-          <button className="proceed-btn">Proceed to Payment</button>
+          <button
+            className="proceed-btn"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#766cf1";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#3829e0";
+            }}
+          >
+            Proceed to Payment
+          </button>
 
-          <a href="#" className="cancel-order">
+          <a
+            href="#"
+            className="cancel-order"
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "#1f2f56";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "#7280a7";
+            }}
+          >
             Cancel Order
           </a>
+
         </div>
       </div>
     </main>
