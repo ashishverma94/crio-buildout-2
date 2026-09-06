@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -46,9 +44,9 @@ body {
   width: 100%;
   display: block;
 }
+
 .content {
   padding: 40px 48px 45px;
-
   text-align: center;
 }
 
@@ -100,17 +98,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   gap: 4px;
 }
 
-.plan-text strong {
+.plan-text h3 {
   color: #1f2f56;
 
   font-size: 14px;
   font-weight: 900;
 }
 
-.plan-text span {
+.plan-text p {
   color: #7280a7;
 
   font-size: 14px;
@@ -123,8 +122,6 @@ body {
   font-weight: 700;
 
   text-decoration: underline;
-
-  transition: color 0.2s ease;
 }
 
 .change-link a:hover {
@@ -134,13 +131,12 @@ body {
 .proceed-btn {
   width: 100%;
 
+  padding: 15px;
+
   border: none;
   border-radius: 10px;
 
-  padding: 15px;
-
-  background: #3829e0;
-
+  background-color: #3829e0;
   color: #ffffff;
 
   font-family: inherit;
@@ -149,16 +145,11 @@ body {
 
   cursor: pointer;
 
-  box-shadow: 0 12px 20px rgba(56, 41, 224, 0.25);
-
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 
 .proceed-btn:hover {
   background-color: #766cf1;
-  transform: translateY(-1px);
 }
 
 .cancel-order {
@@ -173,7 +164,7 @@ body {
 
   text-decoration: none;
 
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .cancel-order:hover {
@@ -190,30 +181,19 @@ body {
     padding: 20px;
   }
 
-  .container {
-    max-width: 450px;
-    border-radius: 18px;
-  }
-
   .content {
     padding: 32px 24px 35px;
   }
 
   .heading {
     font-size: 24px;
-    margin-bottom: 16px;
   }
 
   .summary-para {
     font-size: 14px;
-    line-height: 1.6;
   }
 
-  .plan {
-    padding: 15px;
-  }
-
-   .music-icon {
+  .music-icon {
     width: 45px;
     height: 45px;
   }

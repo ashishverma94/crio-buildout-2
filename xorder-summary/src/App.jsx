@@ -2,6 +2,7 @@ import "./App.css";
 
 import heroImage from "../assets/illustration-hero.svg";
 import musicIcon from "../assets/icon-music.svg";
+
 function App() {
   return (
     <main className="main">
@@ -21,8 +22,8 @@ function App() {
               <img src={musicIcon} alt="Music" className="music-icon" />
 
               <div className="plan-text">
-                <strong>Annual Plan</strong>
-                <span>$59.99/year</span>
+                <h3>Annual Plan</h3>
+                <p>$59.99/year</p>
               </div>
             </div>
 
