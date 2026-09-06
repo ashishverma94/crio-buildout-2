@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="page">
       <main className="card">
-        {/* NFT Image */}
         <div className="card__images">
           <img
             className="card__images-main"
@@ -18,26 +17,17 @@ function App() {
             alt="Equilibrium #3429"
           />
 
-          {/* Hover Layer */}
           <div className="card__images-layer">
-            <img
-              src={viewIcon}
-              alt="View NFT"
-              className="card__images-view"
-            />
+            <img src={viewIcon} alt="View NFT" className="card__images-view" />
           </div>
         </div>
 
-        {/* Title & Description */}
         <div className="card__title">
           <h1>Equilibrium #3429</h1>
 
-          <p>
-            Our Equilibrium collection promotes balance and calm.
-          </p>
+          <p id="info">Our Equilibrium collection promotes balance and calm.</p>
         </div>
 
-        {/* Price & Time */}
         <div className="card__time">
           <div className="card__time-left">
             <img src={ethereumIcon} alt="Ethereum" />
@@ -46,37 +36,27 @@ function App() {
 
           <div className="card__time-right">
             <img src={clockIcon} alt="Clock" />
-            <span>3 days left.</span>
+            <span>3 days left</span>
           </div>
         </div>
 
-        {/* Creator */}
         <div className="card__creator">
-          <img
-            src={creatorImage}
-            alt="Ashish Verma"
-          />
+          <img src={creatorImage} alt="Ashish Verma" />
 
           <p>
-            Creation of{" "}
-            <span>Ashish Verma</span>
+            Creation of <span>Ashish Verma</span>
           </p>
         </div>
       </main>
 
-      {/* Attribution */}
       <footer className="attribution">
         Challenge by{" "}
-        <a
-          href="https://www.crio.do"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href="https://www.crio.do" target="_blank" rel="noopener noreferrer">
           Crio
         </a>
         . Coded by{" "}
         <a
-          href="https://github.com/ashishverma94"
+          href="https://www.github.com/ashishverma94"
           target="_blank"
           rel="noopener noreferrer"
         >
