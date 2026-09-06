@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Outfit", sans-serif;
+  background: #0d192b;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  width: 100%;
+  max-width: 350px;
+  padding: 24px;
+  background: #14253d;
+  border-radius: 15px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.card__images {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card__images-main {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.card__images-layer {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* background: rgba(0, 255, 247, 0.45); */
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.card__images:hover .card__images-layer {
+  opacity: 1;
+}
+
+.card__images-view {
+  width: 48px;
+  height: 48px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.card__title {
+  margin-top: 22px;
+}
+
+.card__title h1 {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.card__title h1:hover {
+  color: #00fff7;
+}
+
+.card__title p {
+  margin-top: 12px;
+  color: #8bacd9;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* =========================
+   PRICE / TIME
+========================= */
+
+.card__time {
+  margin-top: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__time-left,
+.card__time-right {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.card__time-left img {
+  width: 11px;
+  height: 18px;
+}
+
+.card__time-right img {
+  width: 17px;
+  height: 17px;
+}
+
+.card__time-left span {
+  color: #00fff7;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.card__time-right span {
+  color: #8bacd9;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* =========================
+   CREATOR
+========================= */
+
+.card__creator {
+  margin-top: 22px;
+  padding-top: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  border-top: 1px solid #2a3d56;
+}
+
+.card__creator img {
+  width: 34px;
+  height: 34px;
+
+  object-fit: cover;
+  border-radius: 50%;
+
+  border: 1px solid #ffffff;
+}
+
+.card__creator p {
+  color: #8bacd9;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.card__creator span {
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.card__creator span:hover {
+  color: #00fff7;
+}
+
+/* =========================
+   ATTRIBUTION
+========================= */
+
+.attribution {
+  margin-top: 25px;
+
+  color: #8bacd9;
+  text-align: center;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.attribution a {
+  color: #00fff7;
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .page {
+    padding: 20px;
+  }
+
+  .card {
+    max-width: 327px;
+    padding: 22px;
+  }
+
+  .card__title h1 {
+    font-size: 20px;
+  }
+
+  .card__title p {
+    font-size: 15px;
+  }
+}
