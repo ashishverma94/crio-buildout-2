@@ -34,11 +34,6 @@ button {
   position: relative;
 }
 
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
-
 .sidebar {
   width: 280px;
   height: 540px;
@@ -111,10 +106,6 @@ button {
 }
 
 
-/* =========================================================
-   MAIN CONTENT
-========================================================= */
-
 .content-area {
   width: 680px;
   height: 540px;
@@ -150,11 +141,6 @@ button {
   font-size: 15px;
   line-height: 1.4;
 }
-
-
-/* =========================================================
-   FORM
-========================================================= */
 
 .fields {
   display: flex;
@@ -219,10 +205,6 @@ button {
 }
 
 
-/* =========================================================
-   BUTTONS
-========================================================= */
-
 .form-actions {
   position: absolute;
   left: 0;
@@ -272,10 +254,6 @@ button {
   color: #02295a;
 }
 
-
-/* =========================================================
-   PLANS
-========================================================= */
 
 .plan-grid {
   display: grid;
@@ -341,9 +319,6 @@ button {
 }
 
 
-/* =========================================================
-   BILLING TOGGLE
-========================================================= */
 
 .billing-toggle {
   margin-top: 25px;
@@ -401,23 +376,12 @@ button {
 }
 
 
-/* =========================================================
-   ADDONS
-========================================================= */
-
-.addon-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
 .addon_card {
   width: 100%;
   min-height: 75px;
 
   display: flex;
   align-items: center;
-
   gap: 15px;
 
   padding: 14px;
@@ -441,28 +405,17 @@ button {
   border-color: #6259ff;
 }
 
-.checkbox {
+.addon_card input[type="checkbox"] {
   width: 20px;
   height: 20px;
 
-  border: 1px solid #d6d9e6;
-  border-radius: 4px;
+  margin: 0;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  accent-color: #473dff;
+
+  cursor: pointer;
 
   flex-shrink: 0;
-}
-
-.checkbox.checked {
-  background: #473dff;
-  border-color: #473dff;
-}
-
-.checkbox img {
-  width: 12px;
-  height: 12px;
 }
 
 .addon-info {
@@ -484,12 +437,6 @@ button {
   color: #473dff;
   font-size: 12px;
 }
-
-
-/* =========================================================
-   SUMMARY
-========================================================= */
-
 .summary-box {
   background: #f8f9ff;
   border-radius: 6px;
@@ -574,11 +521,6 @@ button {
   font-size: 20px;
 }
 
-
-/* =========================================================
-   THANK YOU
-========================================================= */
-
 .thank-you {
   height: 100%;
 
@@ -617,10 +559,6 @@ button {
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
-
 .attribution {
   position: absolute;
   bottom: 4px;
@@ -638,9 +576,6 @@ button {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width: 700px) {
 
@@ -662,7 +597,7 @@ button {
 
     border-radius: 0;
 
-    background-image: var(--sidebar-mobile);
+    background-image: url("./assets/bg-sidebar-mobile.svg");
     background-size: cover;
     background-position: center;
 

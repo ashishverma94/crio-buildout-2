@@ -447,25 +447,33 @@ function App() {
                   billing === "monthly" ? addon.monthly : addon.yearly;
 
                 return (
-                  <button
-                    type="button"
-                    key={addon.id}
-                    className={`addon_card ${selected ? "selected" : ""}`}
-                    onClick={() => toggleAddon(addon.id)}
-                  >
-                    <div className={`checkbox ${selected ? "checked" : ""}`}>
-                      {selected && <img src={checkmarkIcon} alt="Selected" />}
-                    </div>
+                 <div
+  key={addon.id}
+  className={`addon_card ${
+    selected ? "selected" : ""
+  }`}
+  onClick={() => toggleAddon(addon.id)}
+>
+  <input
+    type="checkbox"
+    checked={selected}
+    onChange={() => toggleAddon(addon.id)}
+    onClick={(e) => e.stopPropagation()}
+  />
 
-                    <div className="addon-info">
-                      <h3>{addon.name}</h3>
-                      <p>{addon.description}</p>
-                    </div>
+  <div className="addon-info">
+    <h3>{addon.name}</h3>
+    <p>{addon.description}</p>
+  </div>
 
-                    <span className="addon-price">
-                      +${price}/{billing === "monthly" ? "mo" : "yr"}
-                    </span>
-                  </button>
+  <span className="addon-price">
+    +$
+    {billing === "monthly"
+      ? addon.monthly
+      : addon.yearly}
+    /{billing === "monthly" ? "mo" : "yr"}
+  </span>
+</div>
                 );
               })}
             </div>
