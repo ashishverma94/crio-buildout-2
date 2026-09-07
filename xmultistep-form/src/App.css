@@ -1,0 +1,763 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Ubuntu", sans-serif;
+  background: #eef5ff;
+  color: #02295a;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 7vh 20px 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+
+  position: relative;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+  width: 280px;
+  height: 540px;
+
+  background-image: url("./assets/bg-sidebar-desktop.svg");
+  background-size: cover;
+  background-position: center;
+
+  border-radius: 10px 0 0 10px;
+
+  padding: 34px 25px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.step-number {
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+
+  flex-shrink: 0;
+}
+
+.step-item.active .step-number {
+  background: #bee2ff;
+  border-color: #bee2ff;
+  color: #02295a;
+}
+
+.step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.step-info span {
+  color: #adbbd2;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.step-info strong {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.content-area {
+  width: 680px;
+  height: 540px;
+
+  background: white;
+
+  padding: 36px 55px 25px;
+
+  border-radius: 0 0 0 0;
+
+  position: relative;
+}
+
+.form-step {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 65px;
+}
+
+.step-header {
+  margin-bottom: 28px;
+}
+
+.step-header h1 {
+  color: #02295a;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.step-header p {
+  color: #9699ab;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  width: 100%;
+}
+
+.field-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 6px;
+}
+
+.field-label label {
+  color: #02295a;
+  font-size: 14px;
+}
+
+.error {
+  color: #ed3548;
+  font-size: 12px;
+}
+
+.field input {
+  width: 100%;
+  height: 41px;
+
+  padding: 0 13px;
+
+  border: 1px solid #d6d9e6;
+  border-radius: 5px;
+
+  outline: none;
+
+  color: #02295a;
+  font-size: 14px;
+
+  transition: 0.2s ease;
+}
+
+.field input::placeholder {
+  color: #9699ab;
+}
+
+.field input:hover {
+  border-color: #6259ff;
+}
+
+.field input:focus {
+  border-color: #6259ff;
+  box-shadow: 0 0 0 1px #6259ff;
+}
+
+.field input.input-error {
+  border-color: #ed3548;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.form-actions {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-actions.next-only {
+  justify-content: flex-end;
+}
+
+.form-actions button {
+  border: none;
+  border-radius: 5px;
+
+  padding: 11px 17px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition: 0.2s ease;
+}
+
+#next-button {
+  background: #02295a;
+  color: white;
+}
+
+#next-button:hover {
+  background: #174a80;
+}
+
+#next-button:focus {
+  outline: 3px solid rgba(98, 89, 255, 0.25);
+}
+
+.back-button {
+  background: transparent;
+  color: #9699ab;
+}
+
+.back-button:hover {
+  color: #02295a;
+}
+
+
+/* =========================================================
+   PLANS
+========================================================= */
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.plan_card {
+  min-height: 170px;
+
+  padding: 15px;
+
+  border: 1px solid #d6d9e6;
+  border-radius: 7px;
+
+  background: white;
+
+  text-align: left;
+
+  transition: 0.2s ease;
+}
+
+.plan_card:hover {
+  border-color: #6259ff;
+}
+
+.plan_card.selected {
+  background: #f8f9ff;
+  border-color: #6259ff;
+  box-shadow: 0 0 0 1px #6259ff;
+}
+
+.plan_card img {
+  width: 40px;
+  height: 40px;
+
+  margin-bottom: 30px;
+}
+
+.plan-details h3 {
+  color: #02295a;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.plan-details p {
+  color: #9699ab;
+  font-size: 12px;
+}
+
+.plan-details span {
+  display: block;
+  margin-top: 6px;
+
+  color: #02295a;
+  font-size: 11px;
+}
+
+.selection-error {
+  margin-top: 8px;
+  color: #ed3548;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   BILLING TOGGLE
+========================================================= */
+
+.billing-toggle {
+  margin-top: 25px;
+
+  height: 45px;
+
+  background: #f5f8ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  border-radius: 5px;
+}
+
+.billing-toggle span {
+  color: #9699ab;
+  font-size: 12px;
+}
+
+.billing-toggle span.billing-active {
+  color: #02295a;
+  font-weight: 700;
+}
+
+.toggle {
+  width: 38px;
+  height: 20px;
+
+  border: none;
+  border-radius: 20px;
+
+  background: #02295a;
+
+  padding: 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.toggle span {
+  width: 14px;
+  height: 14px;
+
+  background: white;
+  border-radius: 50%;
+
+  transition: transform 0.2s ease;
+}
+
+.toggle.yearly span {
+  transform: translateX(18px);
+}
+
+
+/* =========================================================
+   ADDONS
+========================================================= */
+
+.addon-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.addon_card {
+  width: 100%;
+  min-height: 75px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 14px;
+
+  background: white;
+
+  border: 1px solid #d6d9e6;
+  border-radius: 7px;
+
+  text-align: left;
+
+  transition: 0.2s ease;
+}
+
+.addon_card:hover {
+  border-color: #6259ff;
+}
+
+.addon_card.selected {
+  background: #f8f9ff;
+  border-color: #6259ff;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+
+  border: 1px solid #d6d9e6;
+  border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.checkbox.checked {
+  background: #473dff;
+  border-color: #473dff;
+}
+
+.checkbox img {
+  width: 12px;
+  height: 12px;
+}
+
+.addon-info {
+  flex: 1;
+}
+
+.addon-info h3 {
+  color: #02295a;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.addon-info p {
+  color: #9699ab;
+  font-size: 12px;
+}
+
+.addon-price {
+  color: #473dff;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.summary-box {
+  background: #f8f9ff;
+  border-radius: 6px;
+  padding: 18px;
+}
+
+.summary-plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #d6d9e6;
+}
+
+.summary-plan h3 {
+  color: #02295a;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.summary-plan strong {
+  color: #02295a;
+  font-size: 14px;
+}
+
+.change-plan {
+  border: none;
+  padding: 0;
+
+  background: transparent;
+
+  color: #9699ab;
+  font-size: 12px;
+
+  text-decoration: underline;
+}
+
+.change-plan:hover {
+  color: #473dff;
+}
+
+.summary-addons {
+  padding-top: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-addon {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-addon span {
+  color: #9699ab;
+  font-size: 12px;
+}
+
+.summary-addon strong {
+  color: #02295a;
+  font-size: 12px;
+}
+
+.total-row {
+  padding: 20px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total-row span {
+  color: #9699ab;
+  font-size: 13px;
+}
+
+.total-row strong {
+  color: #473dff;
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   THANK YOU
+========================================================= */
+
+.thank-you {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 30px;
+}
+
+.thank-you-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 25px;
+}
+
+.thank-you h1 {
+  color: #02295a;
+  font-size: 27px;
+  margin-bottom: 12px;
+}
+
+.thank-you p {
+  max-width: 480px;
+
+  color: #9699ab;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.thank-you strong {
+  color: #02295a;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.attribution {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+
+  color: #555;
+  font-size: 10px;
+}
+
+.attribution a {
+  color: #02295a;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  body {
+    background: #eef5ff;
+  }
+
+  .app {
+    min-height: 100vh;
+
+    display: block;
+
+    padding: 0 0 30px;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 180px;
+
+    border-radius: 0;
+
+    background-image: var(--sidebar-mobile);
+    background-size: cover;
+    background-position: center;
+
+    padding: 35px 20px;
+  }
+
+  .steps {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .step-item {
+    display: block;
+  }
+
+  .step-number {
+    width: 35px;
+    height: 35px;
+  }
+
+  .step-info {
+    display: none;
+  }
+
+  .content-area {
+    width: calc(100% - 30px);
+    height: auto;
+
+    min-height: 500px;
+
+    margin: -50px auto 0;
+
+    padding: 30px 22px;
+
+    border-radius: 10px;
+
+    position: relative;
+    z-index: 3;
+  }
+
+  .form-step {
+    min-height: 450px;
+  }
+
+  .step-header {
+    margin-bottom: 25px;
+  }
+
+  .step-header h1 {
+    font-size: 23px;
+  }
+
+  .step-header p {
+    font-size: 14px;
+  }
+
+  .fields {
+    gap: 18px;
+  }
+
+  .plan-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .plan_card {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 12px;
+  }
+
+  .plan_card img {
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 0;
+  }
+
+  .plan-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .addon_card {
+    min-height: 72px;
+  }
+
+  .attribution {
+    position: relative;
+    margin-top: 8px;
+  }
+}
