@@ -1,0 +1,837 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap");
+
+:root {
+    --white: #ffffff;
+    --black: #151515;
+    --gray: #686868;
+    --light-gray: #fafafa;
+    --border: #dddddd;
+
+    font-family: "Epilogue", sans-serif;
+    color: var(--black);
+    background: var(--light-gray);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    background: var(--light-gray);
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    width: 100%;
+    padding: 28px 40px;
+    background: var(--light-gray);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo {
+    display: block;
+    width: 84px;
+    height: auto;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    display: flex;
+    align-items: center;
+    margin-left: 55px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--gray);
+    font-size: 14px;
+    font-weight: 500;
+
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--black);
+}
+
+.normal-link {
+    white-space: nowrap;
+}
+
+.arrow-icon {
+    width: 10px;
+    height: 6px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.nav-item.open .arrow-icon {
+    transform: rotate(0deg);
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.dropdown-list {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 20px);
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    width: 160px;
+    padding: 20px;
+
+    background: var(--white);
+    border-radius: 10px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.12),
+        0 4px 10px rgba(0, 0, 0, 0.06);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-8px);
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease;
+}
+
+/*
+  IMPORTANT:
+  Dropdown is opened ONLY by clicking.
+  There is intentionally NO :hover selector here.
+*/
+
+.dropdown-list.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--gray);
+    font-size: 14px;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.dropdown-link:hover {
+    color: var(--black);
+    transform: translateX(3px);
+}
+
+.dropdown-link img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.company-dropdown {
+    width: 130px;
+}
+
+/* =========================
+   REGISTRATION
+========================= */
+
+.registration {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-left: auto;
+}
+
+.login-btn,
+.register-btn {
+    color: var(--gray);
+    font-size: 14px;
+    font-weight: 500;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.login-btn:hover {
+    color: var(--black);
+}
+
+.register-btn {
+    min-width: 105px;
+    padding: 12px 20px;
+
+    border: 1px solid var(--gray);
+    border-radius: 12px;
+}
+
+.register-btn:hover {
+    color: var(--black);
+    border-color: var(--black);
+}
+
+/* =========================
+   MOBILE MENU BUTTONS
+========================= */
+
+.menu-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    margin-left: auto;
+}
+
+.menu-button img {
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(400px, 480px);
+
+    max-width: 1140px;
+    min-height: calc(100vh - 110px);
+
+    margin: 0 auto;
+    padding: 55px 30px 70px;
+
+    gap: 80px;
+}
+
+/* Hero picture appears on right on desktop */
+.hero-picture {
+    order: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+}
+
+.hero-picture img {
+    display: block;
+
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+
+    object-fit: contain;
+}
+
+/* =========================
+   HERO TEXT
+========================= */
+
+.text-content {
+    order: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    min-width: 0;
+}
+
+.hero-text {
+    max-width: 540px;
+}
+
+.text-content h1 {
+    max-width: 520px;
+
+    color: var(--black);
+    font-size: clamp(52px, 5.2vw, 78px);
+    line-height: 1;
+    letter-spacing: -2px;
+    font-weight: 700;
+
+    margin-bottom: 45px;
+}
+
+.text-content p {
+    max-width: 470px;
+
+    color: var(--gray);
+    font-size: 18px;
+    line-height: 1.6;
+
+    margin-bottom: 40px;
+}
+
+/* =========================
+   LEARN MORE
+========================= */
+
+.learn-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 135px;
+
+    padding: 15px 22px;
+
+    color: var(--white);
+    background: var(--black);
+
+    border: 1px solid var(--black);
+    border-radius: 14px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.learn-more-btn:hover {
+    color: var(--black);
+    background: transparent;
+}
+
+.learn-more-btn:active {
+    transform: translateY(1px);
+}
+
+/* =========================
+   CLIENTS
+========================= */
+
+.clients {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 530px;
+
+    margin-top: 100px;
+}
+
+.clients img {
+    display: block;
+
+    max-width: 100px;
+    max-height: 30px;
+
+    object-fit: contain;
+
+    opacity: 0.7;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.clients img:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   MOBILE AUTH
+========================= */
+
+.mobile-auth {
+    display: none;
+}
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay {
+    position: fixed;
+    z-index: 50;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.attribution {
+    width: 100%;
+    padding: 20px;
+
+    color: var(--gray);
+    font-size: 12px;
+    text-align: center;
+}
+
+.attribution a {
+    color: var(--black);
+    font-weight: 700;
+
+    transition: opacity 0.2s ease;
+}
+
+.attribution a:hover {
+    opacity: 0.6;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+    .header {
+        padding: 25px 25px;
+    }
+
+    .hero {
+        grid-template-columns: minmax(0, 1fr) minmax(330px, 400px);
+        gap: 45px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    nav {
+        margin-left: 35px;
+    }
+
+    .nav-links {
+        gap: 25px;
+    }
+
+    .registration {
+        gap: 20px;
+    }
+
+    .text-content h1 {
+        font-size: 55px;
+    }
+
+    .clients {
+        margin-top: 70px;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+    body {
+        background: var(--white);
+    }
+
+    .header {
+        padding: 22px 20px;
+        background: var(--white);
+    }
+
+    .header-inner {
+        position: relative;
+    }
+
+    .logo {
+        width: 84px;
+    }
+
+    /* -------------------------
+     MOBILE NAV
+  ------------------------- */
+
+    nav {
+        position: fixed;
+        z-index: 100;
+
+        top: 0;
+        right: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        width: min(70vw, 300px);
+        height: 100vh;
+
+        margin: 0;
+        padding: 95px 25px 30px;
+
+        background: var(--white);
+
+        transform: translateX(100%);
+        visibility: hidden;
+
+        transition:
+            transform 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    nav.active {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        width: 100%;
+        gap: 25px;
+    }
+
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 100%;
+
+        color: var(--gray);
+        font-size: 15px;
+    }
+
+    .normal-link {
+        width: auto;
+    }
+
+    /* -------------------------
+     MOBILE DROPDOWN
+  ------------------------- */
+
+    .dropdown-list {
+        position: static;
+
+        width: 100%;
+
+        margin-top: 18px;
+        padding: 0 0 0 15px;
+
+        background: transparent;
+        border-radius: 0;
+
+        box-shadow: none;
+
+        gap: 20px;
+
+        transform: none;
+    }
+
+    .dropdown-list.visible {
+        transform: none;
+    }
+
+    .dropdown-link {
+        font-size: 14px;
+    }
+
+    .company-dropdown {
+        width: 100%;
+    }
+
+    /* -------------------------
+     MOBILE AUTH
+  ------------------------- */
+
+    .registration {
+        display: none;
+    }
+
+    .mobile-auth {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+        gap: 18px;
+
+        margin-top: 45px;
+    }
+
+    .mobile-auth .login-btn,
+    .mobile-auth .register-btn {
+        width: 100%;
+    }
+
+    .mobile-auth .register-btn {
+        padding: 12px 20px;
+    }
+
+    /* -------------------------
+     MENU BUTTONS
+  ------------------------- */
+
+    .menu-button {
+        display: flex;
+        position: relative;
+        z-index: 120;
+    }
+
+    .close-menu {
+        position: fixed;
+
+        top: 22px;
+        right: 20px;
+
+        z-index: 130;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transition:
+            opacity 0.2s ease,
+            visibility 0.2s ease;
+    }
+
+    .open-menu {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    nav.active~.open-menu {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    nav.active~.close-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    /* -------------------------
+     HERO
+  ------------------------- */
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        min-height: auto;
+
+        margin: 0;
+        padding: 0 0 45px;
+
+        gap: 0;
+    }
+
+    .hero-picture {
+        order: 1;
+
+        width: 100%;
+        margin: 0;
+    }
+
+    .hero-picture img {
+        width: 100%;
+        max-width: none;
+    }
+
+    .text-content {
+        order: 2;
+
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+        padding: 55px 20px 0;
+
+        text-align: center;
+    }
+
+    .hero-text {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .text-content h1 {
+        max-width: none;
+
+        font-size: clamp(38px, 10vw, 52px);
+        line-height: 1.05;
+        letter-spacing: -1.5px;
+
+        margin-bottom: 25px;
+    }
+
+    .text-content p {
+        max-width: 500px;
+
+        margin: 0 auto 28px;
+
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .learn-more-btn {
+        margin: 0 auto;
+    }
+
+    /* -------------------------
+     CLIENT LOGOS
+  ------------------------- */
+
+    .clients {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+        max-width: 500px;
+
+        margin-top: 55px;
+    }
+
+    .clients img {
+        max-width: 75px;
+        max-height: 22px;
+    }
+
+    .attribution {
+        padding-bottom: 25px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+    .header {
+        padding: 20px 18px;
+    }
+
+    nav {
+        width: 75vw;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .text-content {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .text-content h1 {
+        font-size: 38px;
+    }
+
+    .text-content p {
+        font-size: 15px;
+    }
+
+    .clients {
+        gap: 12px;
+    }
+
+    .clients img {
+        max-width: 65px;
+    }
+}
