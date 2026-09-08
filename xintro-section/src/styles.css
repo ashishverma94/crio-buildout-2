@@ -1,837 +1,875 @@
 @import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap");
 
 :root {
-    --white: #ffffff;
-    --black: #151515;
-    --gray: #686868;
-    --light-gray: #fafafa;
-    --border: #dddddd;
-
-    font-family: "Epilogue", sans-serif;
-    color: var(--black);
-    background: var(--light-gray);
+  --black: #151515;
+  --gray: #686868;
+  --white: #ffffff;
+  --background: #fafafa;
+  --border: #dddddd;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    min-width: 320px;
-    min-height: 100vh;
-    background: var(--light-gray);
+  min-width: 320px;
+  min-height: 100vh;
+
+  background: var(--background);
+  color: var(--black);
+
+  font-family: "Epilogue", sans-serif;
 }
 
 button,
 a {
-    font: inherit;
+  font: inherit;
 }
 
 button {
-    border: 0;
-    background: none;
-    cursor: pointer;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
-/* =========================
-   APP
-========================= */
+img {
+  display: block;
+}
 
 .app {
-    min-height: 100vh;
-    overflow-x: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* =========================
+/* =========================================
    HEADER
-========================= */
+========================================= */
 
 .header {
-    width: 100%;
-    padding: 28px 40px;
-    background: var(--light-gray);
+  width: 100%;
+  padding: 28px 40px;
 }
 
 .header-inner {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1440px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
 }
 
-.logo-link {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
+/* =========================================
+   LOGO
+========================================= */
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-    display: block;
-    width: 84px;
-    height: auto;
+  color: var(--black);
+
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -2px;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
+/* =========================================
+   NAV
+========================================= */
 
 nav {
-    display: flex;
-    align-items: center;
-    margin-left: 55px;
+  margin-left: 60px;
+
+  display: flex;
+  align-items: center;
 }
 
 .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 38px;
+  display: flex;
+  align-items: center;
+  gap: 38px;
 }
 
 .nav-item {
-    position: relative;
+  position: relative;
 }
 
 .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-    color: var(--gray);
-    font-size: 14px;
-    font-weight: 500;
+  color: var(--gray);
 
-    transition:
-        color 0.2s ease,
-        opacity 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .nav-link:hover {
-    color: var(--black);
+  color: var(--black);
 }
 
-.normal-link {
-    white-space: nowrap;
+.nav-link:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 5px;
 }
 
 .arrow-icon {
-    width: 10px;
-    height: 6px;
-    object-fit: contain;
-    transition: transform 0.2s ease;
+  width: 10px;
+  height: 6px;
+
+  object-fit: contain;
 }
 
-.nav-item.open .arrow-icon {
-    transform: rotate(0deg);
+.normal-link {
+  white-space: nowrap;
 }
 
-/* =========================
+/* =========================================
    DROPDOWN
-========================= */
+========================================= */
 
 .dropdown-list {
-    position: absolute;
-    z-index: 20;
-    top: calc(100% + 20px);
-    right: 0;
+  position: absolute;
 
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  top: calc(100% + 20px);
+  right: 0;
 
-    width: 160px;
-    padding: 20px;
+  width: 165px;
 
-    background: var(--white);
-    border-radius: 10px;
+  padding: 22px;
 
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.12),
-        0 4px 10px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+  background: var(--white);
 
-    transform: translateY(-8px);
-    transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease,
-        transform 0.2s ease;
+  border-radius: 10px;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.12),
+    0 5px 15px rgba(0, 0, 0, 0.06);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateY(-8px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
 }
 
 /*
   IMPORTANT:
-  Dropdown is opened ONLY by clicking.
-  There is intentionally NO :hover selector here.
+  There is NO :hover selector here.
+  Dropdown opens ONLY after clicking .nav-link.
 */
 
-.dropdown-list.visible {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
+.dropdown-list.dropdown-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateY(0);
 }
 
 .dropdown-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    color: var(--gray);
-    font-size: 14px;
-
-    transition:
-        color 0.2s ease,
-        transform 0.2s ease;
+  width: 100%;
 }
 
-.dropdown-link:hover {
-    color: var(--black);
-    transform: translateX(3px);
+.dropdown-link a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+
+  color: var(--gray);
+
+  font-size: 14px;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dropdown-link a:hover {
+  color: var(--black);
+  transform: translateX(3px);
+}
+
+.dropdown-link a:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 4px;
 }
 
 .dropdown-link img {
-    width: 16px;
-    height: 16px;
-    object-fit: contain;
+  width: 16px;
+  height: 16px;
+
+  object-fit: contain;
 }
 
 .company-dropdown {
-    width: 130px;
+  width: 135px;
 }
 
-/* =========================
+/* =========================================
    REGISTRATION
-========================= */
+========================================= */
 
 .registration {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    margin-left: auto;
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+  gap: 35px;
 }
 
-.login-btn,
-.register-btn {
-    color: var(--gray);
-    font-size: 14px;
-    font-weight: 500;
+.login-button,
+.register-button {
+  color: var(--gray);
 
-    transition:
-        color 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
-.login-btn:hover {
-    color: var(--black);
+.login-button:hover {
+  color: var(--black);
 }
 
-.register-btn {
-    min-width: 105px;
-    padding: 12px 20px;
-
-    border: 1px solid var(--gray);
-    border-radius: 12px;
+.login-button:focus-visible,
+.register-button:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 5px;
 }
 
-.register-btn:hover {
-    color: var(--black);
-    border-color: var(--black);
+.register-button {
+  min-width: 105px;
+
+  padding: 12px 20px;
+
+  border: 1px solid var(--gray);
+  border-radius: 12px;
 }
 
-/* =========================
+.register-button:hover {
+  color: var(--black);
+  border-color: var(--black);
+}
+
+/* =========================================
    MOBILE MENU BUTTONS
-========================= */
+========================================= */
 
 .menu-button {
-    display: none;
-    align-items: center;
-    justify-content: center;
+  display: none;
 
-    width: 28px;
-    height: 28px;
+  width: 30px;
+  height: 30px;
 
-    margin-left: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu-button img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-/* =========================
+/* =========================================
+   MOBILE AUTH
+========================================= */
+
+.mobile-registration {
+  display: none;
+}
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.overlay {
+  position: fixed;
+  z-index: 90;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* =========================================
    HERO
-========================= */
+========================================= */
 
 .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(400px, 480px);
+  width: 100%;
+  max-width: 1140px;
 
-    max-width: 1140px;
-    min-height: calc(100vh - 110px);
+  min-height: calc(100vh - 100px);
 
-    margin: 0 auto;
-    padding: 55px 30px 70px;
+  margin: 0 auto;
 
-    gap: 80px;
+  padding: 55px 30px 70px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(400px, 480px);
+
+  gap: 80px;
 }
 
-/* Hero picture appears on right on desktop */
-.hero-picture {
-    order: 2;
+.hero picture {
+  order: 2;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    min-width: 0;
+  width: 100%;
 }
 
-.hero-picture img {
-    display: block;
+.hero picture img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
 
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-
-    object-fit: contain;
+  object-fit: contain;
 }
 
-/* =========================
-   HERO TEXT
-========================= */
+/* =========================================
+   TEXT CONTENT
+========================================= */
 
 .text-content {
-    order: 1;
+  order: 1;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
-.hero-text {
-    max-width: 540px;
+.hero-copy {
+  max-width: 540px;
 }
 
 .text-content h1 {
-    max-width: 520px;
+  max-width: 520px;
 
-    color: var(--black);
-    font-size: clamp(52px, 5.2vw, 78px);
-    line-height: 1;
-    letter-spacing: -2px;
-    font-weight: 700;
+  font-size: clamp(52px, 5.5vw, 78px);
+  line-height: 1;
+  letter-spacing: -3px;
 
-    margin-bottom: 45px;
+  margin-bottom: 45px;
 }
 
 .text-content p {
-    max-width: 470px;
+  max-width: 470px;
 
-    color: var(--gray);
-    font-size: 18px;
-    line-height: 1.6;
+  color: var(--gray);
 
-    margin-bottom: 40px;
+  font-size: 18px;
+  line-height: 1.6;
+
+  margin-bottom: 40px;
 }
 
-/* =========================
+/* =========================================
    LEARN MORE
-========================= */
+========================================= */
 
-.learn-more-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+.learn-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    min-width: 135px;
+  min-width: 135px;
 
-    padding: 15px 22px;
+  padding: 15px 22px;
 
-    color: var(--white);
-    background: var(--black);
+  color: var(--white);
+  background: var(--black);
 
-    border: 1px solid var(--black);
-    border-radius: 14px;
+  border: 1px solid var(--black);
+  border-radius: 14px;
 
-    font-size: 14px;
-    font-weight: 700;
+  font-size: 14px;
+  font-weight: 700;
 
-    transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.learn-more-btn:hover {
-    color: var(--black);
-    background: transparent;
+.learn-more:hover {
+  color: var(--black);
+  background: transparent;
 }
 
-.learn-more-btn:active {
-    transform: translateY(1px);
+.learn-more:active {
+  transform: translateY(1px);
 }
 
-/* =========================
+.learn-more:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 5px;
+}
+
+/* =========================================
    CLIENTS
-========================= */
+========================================= */
 
 .clients {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  max-width: 530px;
 
-    width: 100%;
-    max-width: 530px;
+  margin-top: 100px;
 
-    margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
 }
 
 .clients img {
-    display: block;
+  max-width: 100px;
+  max-height: 30px;
 
-    max-width: 100px;
-    max-height: 30px;
+  object-fit: contain;
 
-    object-fit: contain;
+  opacity: 0.7;
 
-    opacity: 0.7;
-
-    transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .clients img:hover {
-    opacity: 1;
-    transform: translateY(-2px);
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
-/* =========================
-   MOBILE AUTH
-========================= */
+/* =========================================
+   FOOTER
+========================================= */
 
-.mobile-auth {
-    display: none;
+.attribution {
+  padding: 20px;
+
+  color: var(--gray);
+
+  font-size: 12px;
+  text-align: center;
 }
 
-/* =========================
-   OVERLAY
-========================= */
+.attribution a {
+  color: var(--black);
+  font-weight: 700;
 
-.overlay {
+  transition: opacity 0.2s ease;
+}
+
+.attribution a:hover {
+  opacity: 0.6;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .header {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  nav {
+    margin-left: 35px;
+  }
+
+  .nav-links {
+    gap: 25px;
+  }
+
+  .registration {
+    gap: 20px;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+    gap: 45px;
+
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .text-content h1 {
+    font-size: 55px;
+  }
+
+  .clients {
+    margin-top: 70px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  body {
+    background: var(--white);
+  }
+
+  .header {
+    padding: 22px 20px;
+
+    background: var(--white);
+  }
+
+  /* -----------------------------------------
+     NAV
+  ----------------------------------------- */
+
+  nav {
     position: fixed;
-    z-index: 50;
-    inset: 0;
 
-    background: rgba(0, 0, 0, 0.65);
+    z-index: 100;
+
+    top: 0;
+    right: 0;
+
+    width: min(72vw, 300px);
+    height: 100vh;
+
+    margin: 0;
+
+    padding: 95px 25px 30px;
+
+    background: var(--white);
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    transform: translateX(100%);
+
+    visibility: hidden;
+
+    transition:
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  nav.nav-open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .nav-links {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 25px;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link {
+    width: 100%;
+
+    font-size: 15px;
+  }
+
+  .normal-link {
+    width: auto;
+  }
+
+  /* -----------------------------------------
+     MOBILE DROPDOWN
+  ----------------------------------------- */
+
+  .dropdown-list {
+    position: static;
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 0 0 0 15px;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    border-radius: 0;
+
+    gap: 20px;
+
+    transform: none;
+  }
+
+  .dropdown-list.dropdown-open {
+    transform: none;
+  }
+
+  .dropdown-link a {
+    font-size: 14px;
+  }
+
+  .company-dropdown {
+    width: 100%;
+  }
+
+  /* -----------------------------------------
+     DESKTOP AUTH HIDDEN
+  ----------------------------------------- */
+
+  .registration {
+    display: none;
+  }
+
+  /* -----------------------------------------
+     MOBILE AUTH
+  ----------------------------------------- */
+
+  .mobile-registration {
+    width: 100%;
+
+    margin-top: 45px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 18px;
+  }
+
+  .mobile-registration .login-button,
+  .mobile-registration .register-button {
+    width: 100%;
+  }
+
+  /* -----------------------------------------
+     MENU ICONS
+  ----------------------------------------- */
+
+  .menu-button {
+    display: flex;
+
+    position: relative;
+
+    margin-left: auto;
+  }
+
+  .open-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .close-menu {
+    position: fixed;
+
+    z-index: 120;
+
+    top: 22px;
+    right: 20px;
 
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
     transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
-}
+      opacity 0.2s ease,
+      visibility 0.2s ease;
+  }
 
-.overlay.active {
+  .header-inner:has(nav.nav-open) .open-menu {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .header-inner:has(nav.nav-open) .close-menu {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-}
+  }
 
-/* =========================
-   FOOTER
-========================= */
-
-.attribution {
-    width: 100%;
-    padding: 20px;
-
-    color: var(--gray);
-    font-size: 12px;
-    text-align: center;
-}
-
-.attribution a {
-    color: var(--black);
-    font-weight: 700;
-
-    transition: opacity 0.2s ease;
-}
-
-.attribution a:hover {
-    opacity: 0.6;
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1000px) {
-    .header {
-        padding: 25px 25px;
-    }
-
-    .hero {
-        grid-template-columns: minmax(0, 1fr) minmax(330px, 400px);
-        gap: 45px;
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-
-    nav {
-        margin-left: 35px;
-    }
-
-    .nav-links {
-        gap: 25px;
-    }
-
-    .registration {
-        gap: 20px;
-    }
-
-    .text-content h1 {
-        font-size: 55px;
-    }
-
-    .clients {
-        margin-top: 70px;
-    }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 768px) {
-    body {
-        background: var(--white);
-    }
-
-    .header {
-        padding: 22px 20px;
-        background: var(--white);
-    }
-
-    .header-inner {
-        position: relative;
-    }
-
-    .logo {
-        width: 84px;
-    }
-
-    /* -------------------------
-     MOBILE NAV
-  ------------------------- */
-
-    nav {
-        position: fixed;
-        z-index: 100;
-
-        top: 0;
-        right: 0;
-
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-
-        width: min(70vw, 300px);
-        height: 100vh;
-
-        margin: 0;
-        padding: 95px 25px 30px;
-
-        background: var(--white);
-
-        transform: translateX(100%);
-        visibility: hidden;
-
-        transition:
-            transform 0.3s ease,
-            visibility 0.3s ease;
-    }
-
-    nav.active {
-        transform: translateX(0);
-        visibility: visible;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        width: 100%;
-        gap: 25px;
-    }
-
-    .nav-item {
-        width: 100%;
-    }
-
-    .nav-link {
-        width: 100%;
-
-        color: var(--gray);
-        font-size: 15px;
-    }
-
-    .normal-link {
-        width: auto;
-    }
-
-    /* -------------------------
-     MOBILE DROPDOWN
-  ------------------------- */
-
-    .dropdown-list {
-        position: static;
-
-        width: 100%;
-
-        margin-top: 18px;
-        padding: 0 0 0 15px;
-
-        background: transparent;
-        border-radius: 0;
-
-        box-shadow: none;
-
-        gap: 20px;
-
-        transform: none;
-    }
-
-    .dropdown-list.visible {
-        transform: none;
-    }
-
-    .dropdown-link {
-        font-size: 14px;
-    }
-
-    .company-dropdown {
-        width: 100%;
-    }
-
-    /* -------------------------
-     MOBILE AUTH
-  ------------------------- */
-
-    .registration {
-        display: none;
-    }
-
-    .mobile-auth {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        width: 100%;
-        gap: 18px;
-
-        margin-top: 45px;
-    }
-
-    .mobile-auth .login-btn,
-    .mobile-auth .register-btn {
-        width: 100%;
-    }
-
-    .mobile-auth .register-btn {
-        padding: 12px 20px;
-    }
-
-    /* -------------------------
-     MENU BUTTONS
-  ------------------------- */
-
-    .menu-button {
-        display: flex;
-        position: relative;
-        z-index: 120;
-    }
-
-    .close-menu {
-        position: fixed;
-
-        top: 22px;
-        right: 20px;
-
-        z-index: 130;
-
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-
-        transition:
-            opacity 0.2s ease,
-            visibility 0.2s ease;
-    }
-
-    .open-menu {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    nav.active~.open-menu {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
-
-    nav.active~.close-menu {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-    }
-
-    /* -------------------------
+  /* -----------------------------------------
      HERO
-  ------------------------- */
+  ----------------------------------------- */
 
-    .hero {
-        display: flex;
-        flex-direction: column;
+  .hero {
+    width: 100%;
+    min-height: auto;
 
-        width: 100%;
-        min-height: auto;
+    margin: 0;
+    padding: 0 0 45px;
 
-        margin: 0;
-        padding: 0 0 45px;
+    display: flex;
+    flex-direction: column;
 
-        gap: 0;
-    }
+    gap: 0;
+  }
 
-    .hero-picture {
-        order: 1;
+  .hero picture {
+    order: 1;
 
-        width: 100%;
-        margin: 0;
-    }
+    width: 100%;
+  }
 
-    .hero-picture img {
-        width: 100%;
-        max-width: none;
-    }
+  .hero picture img {
+    width: 100%;
+    max-width: none;
+  }
 
-    .text-content {
-        order: 2;
+  .text-content {
+    order: 2;
 
-        display: flex;
-        align-items: center;
+    width: 100%;
 
-        width: 100%;
-        padding: 55px 20px 0;
+    padding: 55px 20px 0;
 
-        text-align: center;
-    }
+    display: flex;
+    align-items: center;
 
-    .hero-text {
-        width: 100%;
-        max-width: 600px;
-    }
+    text-align: center;
+  }
 
-    .text-content h1 {
-        max-width: none;
+  .hero-copy {
+    width: 100%;
+    max-width: 600px;
+  }
 
-        font-size: clamp(38px, 10vw, 52px);
-        line-height: 1.05;
-        letter-spacing: -1.5px;
+  .text-content h1 {
+    max-width: none;
 
-        margin-bottom: 25px;
-    }
+    font-size: clamp(38px, 10vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
 
-    .text-content p {
-        max-width: 500px;
+    margin-bottom: 25px;
+  }
 
-        margin: 0 auto 28px;
+  .text-content p {
+    max-width: 500px;
 
-        font-size: 16px;
-        line-height: 1.6;
-    }
+    margin: 0 auto 28px;
 
-    .learn-more-btn {
-        margin: 0 auto;
-    }
+    font-size: 16px;
+    line-height: 1.6;
+  }
 
-    /* -------------------------
-     CLIENT LOGOS
-  ------------------------- */
+  .learn-more {
+    margin: 0 auto;
+  }
 
-    .clients {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+  /* -----------------------------------------
+     CLIENTS
+  ----------------------------------------- */
 
-        width: 100%;
-        max-width: 500px;
+  .clients {
+    width: 100%;
 
-        margin-top: 55px;
-    }
+    max-width: 500px;
 
-    .clients img {
-        max-width: 75px;
-        max-height: 22px;
-    }
+    margin-top: 55px;
 
-    .attribution {
-        padding-bottom: 25px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+  }
+
+  .clients img {
+    max-width: 75px;
+    max-height: 24px;
+  }
 }
 
-/* =========================
+/* =========================================
    SMALL MOBILE
-========================= */
+========================================= */
 
 @media (max-width: 480px) {
-    .header {
-        padding: 20px 18px;
-    }
+  .header {
+    padding: 20px 18px;
+  }
 
-    nav {
-        width: 75vw;
-        padding-left: 22px;
-        padding-right: 22px;
-    }
+  nav {
+    width: 76vw;
 
-    .text-content {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
+    padding-left: 22px;
+    padding-right: 22px;
+  }
 
-    .text-content h1 {
-        font-size: 38px;
-    }
+  .text-content {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
 
-    .text-content p {
-        font-size: 15px;
-    }
+  .text-content h1 {
+    font-size: 38px;
+  }
 
-    .clients {
-        gap: 12px;
-    }
+  .text-content p {
+    font-size: 15px;
+  }
 
-    .clients img {
-        max-width: 65px;
-    }
+  .clients img {
+    max-width: 65px;
+  }
 }

@@ -1,30 +1,14 @@
 import { useState } from "react";
 import "./styles.css";
 
-import logo from "./assets/logo.svg";
-
-import menuIcon from "./assets/icon-menu.svg";
-import closeMenuIcon from "./assets/icon-close-menu.svg";
-import arrowDown from "./assets/icon-arrow-down.svg";
-import arrowUp from "./assets/icon-arrow-up.svg";
-
-import todoIcon from "./assets/icon-todo.svg";
-import calendarIcon from "./assets/icon-calendar.svg";
-import remindersIcon from "./assets/icon-reminders.svg";
-import planningIcon from "./assets/icon-planning.svg";
-
-import heroDesktop from "./assets/image-hero-desktop.png";
-import heroMobile from "./assets/image-hero-mobile.png";
-
-import databiz from "./assets/client-databiz.svg";
-import audiophile from "./assets/client-audiophile.svg";
-import meet from "./assets/client-meet.svg";
-import maker from "./assets/client-maker.svg";
-
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [featuresOpen, setFeaturesOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
+
+  const openMobileMenu = () => {
+    setMobileMenuOpen(true);
+  };
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -33,12 +17,12 @@ function App() {
   };
 
   const toggleFeatures = () => {
-    setFeaturesOpen((prev) => !prev);
+    setFeaturesOpen((current) => !current);
     setCompanyOpen(false);
   };
 
   const toggleCompany = () => {
-    setCompanyOpen((prev) => !prev);
+    setCompanyOpen((current) => !current);
     setFeaturesOpen(false);
   };
 
@@ -53,66 +37,107 @@ function App() {
       {/* Header */}
       <header className="header">
         <div className="header-inner">
+
           {/* Logo */}
-          <a href="/" className="logo-link">
-            <img src={logo} alt="snap's logo" className="logo" />
+          <a href="/" className="logo-wrapper">
+            <div className="logo" aria-label="Snap">
+              snap
+            </div>
           </a>
 
-          {/* Desktop / Mobile Navigation */}
-          <nav className={mobileMenuOpen ? "active" : ""}>
+          {/* Navigation */}
+          <nav className={mobileMenuOpen ? "nav-open" : ""}>
+
             <div className="nav-links">
-              {/* Features */}
-              <div className={`nav-item ${featuresOpen ? "open" : ""}`}>
+
+              {/* FEATURES */}
+              <div className="nav-item">
                 <button
                   type="button"
-                  className="nav-link"
+                  className={`nav-link ${
+                    featuresOpen ? "link-open" : ""
+                  }`}
                   onClick={toggleFeatures}
                   aria-expanded={featuresOpen}
                 >
-                  Features
+                  <span>Features</span>
+
                   <img
-                    src={featuresOpen ? arrowUp : arrowDown}
+                    src={
+                      featuresOpen
+                        ? "./assets/images/icon-arrow-up.svg"
+                        : "./assets/images/icon-arrow-down.svg"
+                    }
                     alt=""
                     className="arrow-icon"
                   />
                 </button>
 
                 <div
-                  className={`dropdown-list ${featuresOpen ? "visible" : ""}`}
+                  className={`dropdown-list ${
+                    featuresOpen ? "dropdown-open" : ""
+                  }`}
                 >
-                  <a href="#todo" className="dropdown-link">
-                    <img src={todoIcon} alt="" />
-                    <span aria-label="todo-list">Todo List</span>
-                  </a>
+                  <div className="dropdown-link">
+                    <a href="#todo" aria-label="todo-list">
+                      <img
+                        src="./assets/images/icon-todo.svg"
+                        alt=""
+                      />
+                      <span>Todo List</span>
+                    </a>
+                  </div>
 
-                  <a href="#calendar" className="dropdown-link">
-                    <img src={calendarIcon} alt="" />
-                    <span>Calendar</span>
-                  </a>
+                  <div className="dropdown-link">
+                    <a href="#calendar">
+                      <img
+                        src="./assets/images/icon-calendar.svg"
+                        alt=""
+                      />
+                      <span>Calendar</span>
+                    </a>
+                  </div>
 
-                  <a href="#reminders" className="dropdown-link">
-                    <img src={remindersIcon} alt="" />
-                    <span>Reminders</span>
-                  </a>
+                  <div className="dropdown-link">
+                    <a href="#reminders">
+                      <img
+                        src="./assets/images/icon-reminders.svg"
+                        alt=""
+                      />
+                      <span>Reminders</span>
+                    </a>
+                  </div>
 
-                  <a href="#planning" className="dropdown-link">
-                    <img src={planningIcon} alt="" />
-                    <span>Planning</span>
-                  </a>
+                  <div className="dropdown-link">
+                    <a href="#planning">
+                      <img
+                        src="./assets/images/icon-planning.svg"
+                        alt=""
+                      />
+                      <span>Planning</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              {/* Company */}
-              <div className={`nav-item ${companyOpen ? "open" : ""}`}>
+              {/* COMPANY */}
+              <div className="nav-item">
                 <button
                   type="button"
-                  className="nav-link"
+                  className={`nav-link ${
+                    companyOpen ? "link-open" : ""
+                  }`}
                   onClick={toggleCompany}
                   aria-expanded={companyOpen}
                 >
-                  Company
+                  <span>Company</span>
+
                   <img
-                    src={companyOpen ? arrowUp : arrowDown}
+                    src={
+                      companyOpen
+                        ? "./assets/images/icon-arrow-up.svg"
+                        : "./assets/images/icon-arrow-down.svg"
+                    }
                     alt=""
                     className="arrow-icon"
                   />
@@ -120,24 +145,30 @@ function App() {
 
                 <div
                   className={`dropdown-list company-dropdown ${
-                    companyOpen ? "visible" : ""
+                    companyOpen ? "dropdown-open" : ""
                   }`}
                 >
-                  <a href="#history" className="dropdown-link">
-                    <span>History</span>
-                  </a>
+                  <div className="dropdown-link">
+                    <a href="#history">
+                      <span>History</span>
+                    </a>
+                  </div>
 
-                  <a href="#team" className="dropdown-link">
-                    <span>Our Team</span>
-                  </a>
+                  <div className="dropdown-link">
+                    <a href="#team">
+                      <span>Our Team</span>
+                    </a>
+                  </div>
 
-                  <a href="#blog" className="dropdown-link">
-                    <span>Blog</span>
-                  </a>
+                  <div className="dropdown-link">
+                    <a href="#blog">
+                      <span>Blog</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
-              {/* Normal links */}
+              {/* NORMAL LINKS */}
               <a href="#careers" className="nav-link normal-link">
                 Careers
               </a>
@@ -147,13 +178,13 @@ function App() {
               </a>
             </div>
 
-            {/* Mobile auth buttons */}
-            <div className="mobile-auth">
-              <button type="button" className="login-btn">
+            {/* Mobile authentication */}
+            <div className="mobile-registration">
+              <button type="button" className="login-button">
                 Login
               </button>
 
-              <button type="button" className="register-btn">
+              <button type="button" className="register-button">
                 Register
               </button>
             </div>
@@ -161,76 +192,119 @@ function App() {
 
           {/* Desktop authentication */}
           <div className="registration">
-            <button type="button" className="login-btn">
+            <button type="button" className="login-button">
               Login
             </button>
 
-            <button type="button" className="register-btn">
+            <button type="button" className="register-button">
               Register
             </button>
           </div>
 
-          {/* Mobile menu buttons */}
+          {/* Mobile open button */}
           <button
             type="button"
             className="menu-button open-menu"
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={openMobileMenu}
             aria-label="Open menu"
           >
-            <img src={menuIcon} alt="" />
+            <img
+              src="./assets/images/icon-menu.svg"
+              alt=""
+            />
           </button>
 
+          {/* Mobile close button */}
           <button
             type="button"
             className="menu-button close-menu"
             onClick={closeMobileMenu}
             aria-label="Close menu"
           >
-            <img src={closeMenuIcon} alt="" />
+            <img
+              src="./assets/images/icon-close-menu.svg"
+              alt=""
+            />
           </button>
+
         </div>
       </header>
 
-      {/* Hero */}
+      {/* Main */}
       <main>
-        <section className="hero">
-          {/* Hero Image */}
-          <picture className="hero-picture">
-            <source media="(min-width: 769px)" srcSet={heroDesktop} />
 
-            <img src={heroMobile} alt="Person working remotely" />
+        <section className="hero">
+
+          {/* Hero Image */}
+          <picture>
+            <source
+              media="(min-width: 769px)"
+              srcset="./assets/images/image-hero-desktop.png"
+            />
+
+            <img
+              src="./assets/images/image-hero-mobile.png"
+              alt="People working remotely"
+            />
           </picture>
 
-          {/* Hero Content */}
+          {/* Content */}
           <div className="text-content">
-            <div className="hero-text">
+
+            <div className="hero-copy">
+
               <h1>Make remote work</h1>
 
               <p>
-                Get your team in sync, no matter your location. Streamline
-                processes, create team rituals, and watch productivity soar.
+                Get your team in sync, no matter your location.
+                Streamline processes, create team rituals, and watch
+                productivity soar.
               </p>
 
-              <button type="button" className="learn-more-btn">
+              <button type="button" className="learn-more">
                 Learn more
               </button>
+
             </div>
 
-            {/* Client Logos */}
+            {/* Clients */}
             <div className="clients">
-              <img src={databiz} alt="Databiz" />
-              <img src={audiophile} alt="Audiophile" />
-              <img src={meet} alt="Meet" />
-              <img src={maker} alt="Maker" />
+
+              <img
+                src="./assets/images/client-databiz.svg"
+                alt="Databiz"
+              />
+
+              <img
+                src="./assets/images/client-audiophile.svg"
+                alt="Audiophile"
+              />
+
+              <img
+                src="./assets/images/client-meet.svg"
+                alt="Meet"
+              />
+
+              <img
+                src="./assets/images/client-maker.svg"
+                alt="Maker"
+              />
+
             </div>
+
           </div>
         </section>
+
       </main>
 
-      {/* Attribution */}
+      {/* Footer */}
       <footer className="attribution">
         Challenge by{" "}
-        <a href="https://crio.do" target="_blank" rel="noreferrer">
+        <a
+          href="https://crio.do"
+          target="_blank"
+          rel="noreferrer"
+        >
           Crio.do
         </a>
       </footer>
