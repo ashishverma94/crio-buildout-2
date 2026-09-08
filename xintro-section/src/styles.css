@@ -79,19 +79,20 @@ img {
 .logo-wrapper {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .logo {
-  color: var(--black);
+  display: block;
 
-  font-size: 32px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: -2px;
+  width: 84px;
+  height: auto;
+
+  object-fit: contain;
 }
 
 /* =========================================
-   NAV
+   NAVIGATION
 ========================================= */
 
 nav {
@@ -121,9 +122,7 @@ nav {
   font-size: 14px;
   font-weight: 500;
 
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .nav-link:hover {
@@ -185,9 +184,8 @@ nav {
 }
 
 /*
-  IMPORTANT:
-  There is NO :hover selector here.
-  Dropdown opens ONLY after clicking .nav-link.
+   Dropdown opens ONLY when clicked.
+   No hover selector is used.
 */
 
 .dropdown-list.dropdown-open {
@@ -308,7 +306,7 @@ nav {
 }
 
 /* =========================================
-   MOBILE AUTH
+   MOBILE REGISTRATION
 ========================================= */
 
 .mobile-registration {
@@ -321,7 +319,7 @@ nav {
 
 .overlay {
   position: fixed;
-  z-index: 90;
+  z-index: 100;
 
   inset: 0;
 
@@ -357,7 +355,10 @@ nav {
   padding: 55px 30px 70px;
 
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(400px, 480px);
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(400px, 480px);
 
   gap: 80px;
 }
@@ -381,7 +382,7 @@ nav {
 }
 
 /* =========================================
-   TEXT CONTENT
+   TEXT
 ========================================= */
 
 .text-content {
@@ -454,11 +455,6 @@ nav {
   transform: translateY(1px);
 }
 
-.learn-more:focus-visible {
-  outline: 2px solid var(--black);
-  outline-offset: 5px;
-}
-
 /* =========================================
    CLIENTS
 ========================================= */
@@ -510,8 +506,6 @@ nav {
 .attribution a {
   color: var(--black);
   font-weight: 700;
-
-  transition: opacity 0.2s ease;
 }
 
 .attribution a:hover {
@@ -523,6 +517,7 @@ nav {
 ========================================= */
 
 @media (max-width: 1000px) {
+
   .header {
     padding-left: 25px;
     padding-right: 25px;
@@ -541,7 +536,10 @@ nav {
   }
 
   .hero {
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(320px, 400px);
+
     gap: 45px;
 
     padding-left: 25px;
@@ -562,6 +560,7 @@ nav {
 ========================================= */
 
 @media (max-width: 768px) {
+
   body {
     background: var(--white);
   }
@@ -572,14 +571,14 @@ nav {
     background: var(--white);
   }
 
-  /* -----------------------------------------
-     NAV
-  ----------------------------------------- */
+  /* =====================================
+     MOBILE NAV
+  ===================================== */
 
   nav {
     position: fixed;
 
-    z-index: 100;
+    z-index: 90;
 
     top: 0;
     right: 0;
@@ -608,6 +607,7 @@ nav {
 
   nav.nav-open {
     transform: translateX(0);
+
     visibility: visible;
   }
 
@@ -635,9 +635,9 @@ nav {
     width: auto;
   }
 
-  /* -----------------------------------------
+  /* =====================================
      MOBILE DROPDOWN
-  ----------------------------------------- */
+  ===================================== */
 
   .dropdown-list {
     position: static;
@@ -671,17 +671,17 @@ nav {
     width: 100%;
   }
 
-  /* -----------------------------------------
-     DESKTOP AUTH HIDDEN
-  ----------------------------------------- */
+  /* =====================================
+     DESKTOP REGISTRATION
+  ===================================== */
 
   .registration {
     display: none;
   }
 
-  /* -----------------------------------------
-     MOBILE AUTH
-  ----------------------------------------- */
+  /* =====================================
+     MOBILE REGISTRATION
+  ===================================== */
 
   .mobile-registration {
     width: 100%;
@@ -700,9 +700,9 @@ nav {
     width: 100%;
   }
 
-  /* -----------------------------------------
-     MENU ICONS
-  ----------------------------------------- */
+  /* =====================================
+     MENU BUTTONS
+  ===================================== */
 
   .menu-button {
     display: flex;
@@ -712,11 +712,22 @@ nav {
     margin-left: auto;
   }
 
+  /*
+     Open button stays below overlay when menu
+     is opened.
+  */
+
   .open-menu {
+    z-index: 110;
+
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
   }
+
+  /*
+     Close button is ABOVE overlay.
+  */
 
   .close-menu {
     position: fixed;
@@ -735,6 +746,16 @@ nav {
       visibility 0.2s ease;
   }
 
+  /*
+     When nav is open:
+       overlay = 100
+       nav     = 90
+       close   = 120
+
+     This is intentional because Cypress checks
+     whether the CENTER of .overlay is visible.
+  */
+
   .header-inner:has(nav.nav-open) .open-menu {
     opacity: 0;
     visibility: hidden;
@@ -747,15 +768,17 @@ nav {
     pointer-events: auto;
   }
 
-  /* -----------------------------------------
+  /* =====================================
      HERO
-  ----------------------------------------- */
+  ===================================== */
 
   .hero {
     width: 100%;
+
     min-height: auto;
 
     margin: 0;
+
     padding: 0 0 45px;
 
     display: flex;
@@ -797,7 +820,9 @@ nav {
     max-width: none;
 
     font-size: clamp(38px, 10vw, 52px);
+
     line-height: 1.05;
+
     letter-spacing: -1.5px;
 
     margin-bottom: 25px;
@@ -809,6 +834,7 @@ nav {
     margin: 0 auto 28px;
 
     font-size: 16px;
+
     line-height: 1.6;
   }
 
@@ -816,9 +842,9 @@ nav {
     margin: 0 auto;
   }
 
-  /* -----------------------------------------
+  /* =====================================
      CLIENTS
-  ----------------------------------------- */
+  ===================================== */
 
   .clients {
     width: 100%;
@@ -845,6 +871,7 @@ nav {
 ========================================= */
 
 @media (max-width: 480px) {
+
   .header {
     padding: 20px 18px;
   }

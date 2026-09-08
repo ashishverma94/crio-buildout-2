@@ -28,30 +28,40 @@ function App() {
 
   return (
     <div className="app">
-      {/* Overlay */}
+
+      {/* =========================
+          MOBILE OVERLAY
+      ========================= */}
       <div
         className={`overlay ${mobileMenuOpen ? "active" : ""}`}
         onClick={closeMobileMenu}
       />
 
-      {/* Header */}
+      {/* =========================
+          HEADER
+      ========================= */}
       <header className="header">
         <div className="header-inner">
 
-          {/* Logo */}
+          {/* LOGO */}
           <a href="/" className="logo-wrapper">
-            <div className="logo" aria-label="Snap">
-              snap
-            </div>
+            <img
+              src="./assets/images/logo.svg"
+              alt="snap's logo"
+              className="logo"
+            />
           </a>
 
-          {/* Navigation */}
+          {/* =========================
+              NAVIGATION
+          ========================= */}
           <nav className={mobileMenuOpen ? "nav-open" : ""}>
 
             <div className="nav-links">
 
               {/* FEATURES */}
               <div className="nav-item">
+
                 <button
                   type="button"
                   className={`nav-link ${
@@ -78,8 +88,12 @@ function App() {
                     featuresOpen ? "dropdown-open" : ""
                   }`}
                 >
+
                   <div className="dropdown-link">
-                    <a href="#todo" aria-label="todo-list">
+                    <a
+                      href="#todo"
+                      aria-label="todo-list"
+                    >
                       <img
                         src="./assets/images/icon-todo.svg"
                         alt=""
@@ -117,11 +131,13 @@ function App() {
                       <span>Planning</span>
                     </a>
                   </div>
+
                 </div>
               </div>
 
               {/* COMPANY */}
               <div className="nav-item">
+
                 <button
                   type="button"
                   className={`nav-link ${
@@ -148,6 +164,7 @@ function App() {
                     companyOpen ? "dropdown-open" : ""
                   }`}
                 >
+
                   <div className="dropdown-link">
                     <a href="#history">
                       <span>History</span>
@@ -165,43 +182,73 @@ function App() {
                       <span>Blog</span>
                     </a>
                   </div>
+
                 </div>
               </div>
 
-              {/* NORMAL LINKS */}
-              <a href="#careers" className="nav-link normal-link">
+              {/* CAREERS */}
+              <a
+                href="#careers"
+                className="nav-link normal-link"
+              >
                 Careers
               </a>
 
-              <a href="#about" className="nav-link normal-link">
+              {/* ABOUT */}
+              <a
+                href="#about"
+                className="nav-link normal-link"
+              >
                 About
               </a>
+
             </div>
 
-            {/* Mobile authentication */}
+            {/* MOBILE AUTH */}
             <div className="mobile-registration">
-              <button type="button" className="login-button">
+
+              <button
+                type="button"
+                className="login-button"
+              >
                 Login
               </button>
 
-              <button type="button" className="register-button">
+              <button
+                type="button"
+                className="register-button"
+              >
                 Register
               </button>
+
             </div>
+
           </nav>
 
-          {/* Desktop authentication */}
+          {/* =========================
+              DESKTOP AUTH
+          ========================= */}
           <div className="registration">
-            <button type="button" className="login-button">
+
+            <button
+              type="button"
+              className="login-button"
+            >
               Login
             </button>
 
-            <button type="button" className="register-button">
+            <button
+              type="button"
+              className="register-button"
+            >
               Register
             </button>
+
           </div>
 
-          {/* Mobile open button */}
+          {/* =========================
+              OPEN MENU
+          ========================= */}
           <button
             type="button"
             className="menu-button open-menu"
@@ -214,7 +261,9 @@ function App() {
             />
           </button>
 
-          {/* Mobile close button */}
+          {/* =========================
+              CLOSE MENU
+          ========================= */}
           <button
             type="button"
             className="menu-button close-menu"
@@ -230,30 +279,36 @@ function App() {
         </div>
       </header>
 
-      {/* Main */}
+      {/* =========================
+          MAIN
+      ========================= */}
       <main>
 
         <section className="hero">
 
-          {/* Hero Image */}
+          {/* HERO IMAGE */}
           <picture>
+
             <source
               media="(min-width: 769px)"
-              srcset="./assets/images/image-hero-desktop.png"
+              srcSet="./assets/images/image-hero-desktop.png"
             />
 
             <img
               src="./assets/images/image-hero-mobile.png"
               alt="People working remotely"
             />
+
           </picture>
 
-          {/* Content */}
+          {/* TEXT CONTENT */}
           <div className="text-content">
 
             <div className="hero-copy">
 
-              <h1>Make remote work</h1>
+              <h1>
+                Make remote work
+              </h1>
 
               <p>
                 Get your team in sync, no matter your location.
@@ -261,13 +316,16 @@ function App() {
                 productivity soar.
               </p>
 
-              <button type="button" className="learn-more">
+              <button
+                type="button"
+                className="learn-more"
+              >
                 Learn more
               </button>
 
             </div>
 
-            {/* Clients */}
+            {/* CLIENTS */}
             <div className="clients">
 
               <img
@@ -293,13 +351,18 @@ function App() {
             </div>
 
           </div>
+
         </section>
 
       </main>
 
-      {/* Footer */}
+      {/* =========================
+          FOOTER
+      ========================= */}
       <footer className="attribution">
+
         Challenge by{" "}
+
         <a
           href="https://crio.do"
           target="_blank"
@@ -307,7 +370,9 @@ function App() {
         >
           Crio.do
         </a>
+
       </footer>
+
     </div>
   );
 }
